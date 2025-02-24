@@ -24,7 +24,7 @@ RUN export APP_INSTALL_ARGS="" && \
     --no-procfile \
     --no-backups \
     --skip-redis-config-generation \
-    --verbose \
+    # --verbose \
     /home/frappe/frappe-bench && \
   cd /home/frappe/frappe-bench && \
   echo "{}" > sites/common_site_config.json && \
