@@ -26,6 +26,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate base64 from apps.json
+        run: |
+          export APPS_JSON_BASE64=$(base64 -w 0 apps.json)
+          echo "APPS_JSON_BASE64=$APPS_JSON_BASE64" >> $GITHUB_ENV
+      - name: Verify apps.json Base64
+        run: |
+          echo $APPS_JSON_BASE64 | base64 -d > decoded.json
+          cat decoded.json
       - name: Build and push Docker image
         run: |
           docker build \
