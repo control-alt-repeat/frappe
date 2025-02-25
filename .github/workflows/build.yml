@@ -43,7 +43,7 @@ jobs:
           context: .
           file: Containerfile
           push: true
-          tags: ghcr.io/controlaltrepeat/frappe/custom:0.0.2
+          tags: ghcr.io/${{ github.repository }}/custom:latest
           build-args: |
             FRAPPE_PATH=https://github.com/frappe/frappe
             FRAPPE_BRANCH=version-15
